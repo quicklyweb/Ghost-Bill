@@ -1,0 +1,144 @@
+				<div class="navfix"></div>
+			<div style="background: #fff !important; margin-top: 50px; border: 1px solid #eee;" id="order_bill">
+				<div class="col-md-12" style="background: #eee !important; margin-bottom: 20px;">
+					<div class="section-title">
+						<h3 style="margin-top: 10px; display: inline-block; margin-right: 10px; font-weight: 400;"><?php $this->Html->_($package_group->name);?></h3>
+						<?php
+						if (empty($package_group->description)) {
+						?>
+							<p class="format" style="display: inline-block;"><?php $this->_("Main.packages.subheading");?></p>
+						<?php
+						}
+						else {
+							echo $this->TextParser->encode($parser_syntax, $package_group->description);
+						}
+						?>
+					</div>
+				</div>
+			
+					<div class="col-md-6" style="color: #8f8f8f; font-weight: 500; padding-left: 20px; padding-bottom: 20px;"><?php $this->_("Main.index.order_placed");?> <?= date('F'); ?> <?= date('d'); ?>, <?= date('Y'); ?> at <?= date('g'); ?>:<?= date('i'); ?> <?= date('a'); ?></div>
+					<div class="col-md-6" style="text-align: right !important; color: #8f8f8f; font-weight: 500; padding-right: 20px; padding-bottom: 20px;"><b><?php $this->_("Main.index.order_status");?></b> <div style="background: rgb(228, 238, 238); padding: 2px 5px 2px 5px; display: inline-block; border-radius: 4px; margin-left: 10px;"><?php $this->_("Main.packages.box_select");?></div></div>
+					
+					<div class="col-md-6" id="order-summary"></div>
+					<div class="col-md-6" id="package-config"></div>
+					
+					<div class="col-md-12" style="background: #eee !important; margin-bottom: 20px;">
+					<div class="section-title">
+						<h3 style="margin-top: 10px; display: inline-block; margin-right: 10px; font-weight: 400;"><?php $this->_("Main.index.order_sumamry");?></h3>
+					</div>
+					</div>
+
+						<div class="col-md-4" style="font-size: 16px; color: #666; font-weight: 500;"><?php $this->Html->_($package_group->name);?></div>
+						<div class="col-md-4" style="font-size: 16px; color: #666; font-weight: 500;"><?php $this->_("Main.packages.price_start");?></div>
+									
+				<div class="col-md-2">
+					<?php
+					if (count($order_form->currencies) > 1) {
+					?>
+					<div class="currency">
+			
+						<?php
+						$this->Form->setCsrfOptions(array('set_on_create' => false));
+						$this->Form->create(null, array('method' => "GET", 'class' => "form-inline"));
+						$this->Form->fieldHidden("group_id", $this->Html->ifSet($package_group->id));
+						?>
+							<label for="change_currency">
+								<?php $this->_("Main.index.field_currency");?>
+							</label>
+							<?php
+							$this->Form->fieldSelect("currency", $this->Form->collapseObjectArray($order_form->currencies, "currency", "currency"), $this->Html->ifSet($currency), array('class' => "form-control input-sm", 'id' => "change_currency"));
+							?>
+						<?php
+						$this->Form->end();
+						$this->Form->setCsrfOptions(array('set_on_create' => true));
+						?>
+					</div>
+					<?php
+					}
+					?>
+				</div>
+				<div class="clearfix"></div>
+
+				<?php
+				if ($order_form->template_style == "list") {
+				?>
+					<?php
+					foreach ($packages as $i => $package) {
+						$lowest_price = null;
+						if ($i == 0 && !$this->Html->ifSet($package_id) && !$this->Html->ifSet($pricing_id))
+							$package_id = $package->id;
+						
+						$selected_pricing_id = null;
+						foreach ($package->pricing as $price) {
+							if ($this->Html->ifSet($pricing_id) == $price->id) {
+								$package_id = $package->id;
+								$selected_pricing_id = $pricing_id;
+							}
+							
+							if ($lowest_price === null || $lowest_price->price > $price->price)
+								$lowest_price = $price;
+						}
+					?>
+						<hr>
+						<div class="well well-order package-list <?php echo ($this->Html->ifSet($package_id) == $package->id ? "selected" : "");?>" data-group-id="<?php $this->Html->_($package_group->id);?>" data-pricing-id="<?php $this->Html->_($lowest_price->id);?>" data-selected-pricing-id="<?php $this->Html->_($selected_pricing_id);?>">
+							<div class="col-md-4 col-sm-6 col-xs-12 package-item" style="text-align: left;">
+								<font style="color: rgb(81, 200, 197) !important; font-size: 18px;"><?php $this->Html->_($package->name);?></font>
+							<p>
+								<?php
+								if (!empty($package->description_html) || !empty($package->description)) {
+								?>
+									<?php echo ($this->Html->ifSet($package->description_html) != "" ? $package->description_html : $this->TextParser->encode($parser_syntax, $package->description));?>
+								<?php
+								}
+								?>
+							</p>
+							</div>
+							<div class="col-md-4 col-sm-12 col-xs-12 package-item">
+								<h3 style="color: rgb(54, 64, 67);"><?php echo $this->CurrencyFormat->format($this->Html->ifSet($lowest_price->price), $this->Html->ifSet($lowest_price->currency));?></h3>
+							</div>
+							<div class="col-md-4 col-sm-12 col-xs-12 package-item" style="text-align: left;">
+									<div class="order selected-btn">
+										<button type="button" class="btn btn-success btn-lg pull-right" style="background: rgb(232, 149, 114) !important; border-color: rgb(232, 149, 114) !important; border-radius: 0px !important;"><?php $this->_("Main.packages.box_selected");?></button>
+									</div>
+									<div class="order unselected-btn">
+										<button type="button" class="btn btn-default btn-lg pull-right" style="border-radius: 0px !important;"><?php $this->_("Main.packages.box_select");?></button>
+									</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					<?php
+					}
+					?>
+				<?php
+				}
+				?>
+			</div>
+				
+				<div class="clearfix"></div>
+				<button type="button" class="btn btn-success btn-lg pull-right" style="background: rgb(232, 149, 114) !important; border-color: rgb(232, 149, 114) !important; border-radius: 0px !important; margin-top: 20px;margin-bottom: 15px;" onclick="$('#order_bill').fadeOut(); $(this).fadeOut(); $('#create-account').fadeIn();"><?php $this->_("Main.index.button_order");?></button>
+				<div class="clearfix"></div>
+									
+				<div class="col-md-12 noindent" id="create-account" style="display: none;"></div>
+	
+	<script type="text/javascript">
+		var base_uri = '<?php $this->Html->_($this->base_uri);?>';
+		var order_label = '<?php $this->Html->_($order_form->label);?>';
+	</script>
+	<script type="text/javascript" src="<?php echo $this->Html->safe($this->view_dir . "javascript/order.js");?>"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// Initialize package selection
+			initPackages(<?php echo $this->Json->encode($this->Html->ifSet($slider_packages_js, array()));?>);
+			// Fetch initial configuration
+			fetchConfig('<?php $this->Html->_($slider_packages[$package_id]->group_id);?>', '<?php $this->Html->_($slider_packages[$package_id]->pricing_id);?>');
+			// Fetch signup/login
+			fetchSignup();
+		});
+		
+		// Process change currency request
+		$("#change_currency").change(function() {
+			$(this).closest("form").attr('action', window.location.href);
+			$(this).closest("form").submit();
+		});
+		
+	</script>

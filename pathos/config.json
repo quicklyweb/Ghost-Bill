@@ -1,0 +1,18 @@
+{
+	"version": "1.1.0",
+	"name": "AJAX Template Pack",
+	"description": "AJAX order form template pack for the Order plugin.",
+	"authors": [
+		{
+			"name": "Phillips Data, Inc.",
+			"url": "http://www.blesta.com"
+		}
+	],
+	"styles": {
+		"list": {
+			"name": "Pathos",
+			"thumbnail": "images/thumb_list.png",
+			"screenshot": "images/full_list.png"
+		}
+	}
+}

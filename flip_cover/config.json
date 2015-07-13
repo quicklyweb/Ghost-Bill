@@ -1,0 +1,18 @@
+{
+	"version": "1.0.0",
+	"name": "Wizard Template Pack",
+	"description": "Wizard order form template pack for the Order plugin.",
+	"authors": [
+		{
+			"name": "Phillips Data, Inc.",
+			"url": "http://www.blesta.com"
+		}
+	],
+	"styles": {
+		"boxes": {
+			"name": "Flip Cover",
+			"thumbnail": "images/thumb_boxes.png",
+			"screenshot": "images/full_boxes.png"
+		}
+	}
+}

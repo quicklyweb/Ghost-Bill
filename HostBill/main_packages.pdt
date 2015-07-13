@@ -20,7 +20,7 @@
 					<div class="col-md-6" style="text-align: right !important; color: #8f8f8f; font-weight: 500; padding-right: 20px; padding-bottom: 20px;"><b><?php $this->_("Main.index.order_status");?></b> <div style="background: rgb(228, 238, 238); padding: 2px 5px 2px 5px; display: inline-block; border-radius: 4px; margin-left: 10px;"><?php $this->_("Main.packages.box_select");?></div></div>
 					
 					<div class="col-md-6" id="order-summary"></div>
-					<div class="col-md-6" id="package-config"></div>
+					<div class="col-md-6" id="package-config" style=" margin-top: -10px; "></div>
 					
 					<div class="col-md-12" style="background: #eee !important; margin-bottom: 20px;">
 					<div class="section-title">

@@ -220,6 +220,13 @@
 			<?php
 			}
 			?>
+			var w = $(window).width();
+			if(w < 395){
+				$('.pull-right').removeClass('pull-right').addClass('pull-right-removed');
+			} else {
+				$('.pull-right-removed').addClass('pull-right');
+			}
+
 		});
 		
 		// Process change currency request

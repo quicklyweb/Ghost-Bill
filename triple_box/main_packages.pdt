@@ -1,0 +1,227 @@
+				<div class="navfix"></div>
+				<div style="padding: 10px; margin-top: 25px; margin-bottom: 20px; text-align: center; color: #666;">
+					<font style="font-size: 35px;"><?php $this->Html->_($package_group->name);?></font>
+					<div class="section-title" style="margin-top: 10px;">
+						<?php
+						if (empty($package_group->description)) {
+						?>
+						<p class="format"><?php $this->_("Main.packages.subheading");?></p>
+						<?php
+						}
+						else {
+							echo $this->TextParser->encode($parser_syntax, $package_group->description);
+						}
+						?>
+					</div>
+				</div>
+
+
+				<div class="col-md-2">
+					<?php
+					if (count($order_form->currencies) > 1) {
+					?>
+					<div class="currency">
+			
+						<?php
+						$this->Form->setCsrfOptions(array('set_on_create' => false));
+						$this->Form->create(null, array('method' => "GET", 'class' => "form-inline"));
+						$this->Form->fieldHidden("group_id", $this->Html->ifSet($package_group->id));
+						?>
+							<label for="change_currency">
+								<?php $this->_("Main.index.field_currency");?>
+							</label>
+							<?php
+							$this->Form->fieldSelect("currency", $this->Form->collapseObjectArray($order_form->currencies, "currency", "currency"), $this->Html->ifSet($currency), array('class' => "form-control input-sm", 'id' => "change_currency"));
+							?>
+						<?php
+						$this->Form->end();
+						$this->Form->setCsrfOptions(array('set_on_create' => true));
+						?>
+					</div>
+					<?php
+					}
+					?>
+				</div>
+				<div class="clearfix"></div>
+				
+				<?php
+				if ($order_form->template_style == "boxes") {
+				?>
+					<?php
+					$this->Form->create(null, array('class' => "form-inline", 'role' => "form"));
+					$this->Form->fieldHidden("group_id", $package_group->id);
+					?>
+						<?php
+						$c = 0;
+						foreach ($packages as $i => $package) {
+							$lowest_price = null;
+							if ($i == 0 && !$this->Html->ifSet($package_id))
+								$package_id = $package->id;
+								
+							foreach ($package->pricing as $price) {
+								if ($lowest_price === null || $lowest_price->price > $price->price)
+									$lowest_price = $price;
+							}
+							
+							if ($i == 0)
+								$this->Form->fieldHidden("pricing_id", $this->Html->ifSet($lowest_price->id), array('id' => "pricing_id"));
+						?>
+							<div class="col-md-4 package-boxes">
+								<div class="package panel-blesta <?php echo ($this->Html->ifSet($package_id) == $package->id ? "selected" : "");?>" data-group-id="<?php $this->Html->_($package_group->id);?>" data-pricing-id="<?php $this->Html->_($lowest_price->id);?>">
+									<div class="package-name panel-heading" style="background: url('<?php echo $this->Html->safe($this->view_dir . "images/head.jpg"); ?>'); <?php if($c == 1){ echo'background-size: cover; '; } ?> height: 175px;">
+										<h4 style=" border-bottom-width: 0px; ">
+											<div style="font-size: 25px; height: 130px; width: 130px; line-height: 120px; border-radius: 200px; -moz-border-radius: 200px; -webkit-border-radius: 200px; margin: 90px auto 25px auto; background: #046DD2;">
+												<font><?php echo $this->CurrencyFormat->format($this->Html->ifSet($lowest_price->price), $this->Html->ifSet($lowest_price->currency));?></font>
+											</div>
+										</h4>
+									</div><br><br><br><br>
+									<font style="font-weight: 400; font-size: 23px;"><?php $this->Html->_($package->name);?></font>
+									<hr>
+									<?php
+									if (!empty($package->description_html) || !empty($package->description)) {
+									?>
+										<?php echo ($this->Html->ifSet($package->description_html) != "" ? $package->description_html : $this->TextParser->encode($parser_syntax, $package->description));?>
+									<?php
+									}
+									?><br>
+									<div class="order selected-btn">
+										<button type="button" class="btn btn-success btn-lg" style="margin: 10px; background: #046DD2; border-color: #046DD2;"><?php $this->_("Main.packages.box_selected");?></button>
+									</div>
+									<div class="order unselected-btn">
+										<button type="button" class="btn btn-default btn-lg" style="margin: 10px; background: #046DD2; border-color: #046DD2; color: #fff;"><?php $this->_("Main.packages.box_select");?></button>
+									</div>
+								</div>
+							</div>
+						<?php
+							$c = $c + 1;
+
+						}
+						?>
+						<div class="col-md-12" style="margin-top: 20px;">
+							<div class="pull-right">
+								<button type="submit" class="btn btn-lg btn-success pull-right" style="background: #046DD2; border-color: #046DD2;">
+									<?php $this->_("Main.packages.continue_btn");?> <i class="fa fa-angle-double-right"></i>
+								</button>
+								<div class="clearfix"></div>
+								<small><?php $this->_("Main.packages.continue_note");?></small>
+							</div>
+						</div>
+					<?php
+					$this->Form->end();
+					?>
+				<?php
+				}
+				elseif ($order_form->template_style == "slider") {
+				?>
+					<?php
+					$this->Form->create(null, array('class' => "form-inline", 'role' => "form"));
+					$this->Form->fieldHidden("group_id", $package_group->id);
+					?>
+						<div class="well well-order package-slider">
+							<?php
+							$slider_packages = array();
+							$slider_packages_js = array();
+							foreach ($packages as $i => $package) {
+								if (!$this->Html->ifSet($package_id) && $i == 0)
+									$package_id = $package->id;
+								$lowest_price = null;
+								foreach ($package->pricing as $price) {
+									if ($lowest_price === null || $lowest_price->price > $price->price)
+										$lowest_price = $price;
+								}
+								$slider_packages[$package->id] = (object)array('index' => $i+1, 'group_id' => $package_group->id, 'pricing_id' => $this->Html->ifSet($lowest_price->id));
+								$slider_packages_js[$slider_packages[$package->id]->index] = $slider_packages[$package->id];
+								
+								if ($i == 0)
+									$this->Form->fieldHidden("pricing_id", $this->Html->ifSet($lowest_price->id), array('id' => "pricing_id"));
+								
+							}
+							$this->Form->fieldText(null, $this->Html->ifSet($slider_packages[$this->Html->ifSet($package_id)]->index), array('id' => "package_slider", 'data-slider-min' => 1, 'data-slider-max' => count($packages), 'data-slider-step' => 1, 'data-slider-value'=> $this->Html->ifSet($slider_packages[$this->Html->ifSet($package_id)]->index)));
+							?>
+							<div class="instructions"><i class="fa fa-share fa-rotate-270"></i> <?php $this->_("Main.packages.select_note");?></div>
+							
+							<?php
+							foreach ($packages as $i => $package) {
+								$lowest_price = null;
+								foreach ($package->pricing as $price) {
+									if ($lowest_price === null || $lowest_price->price > $price->price)
+										$lowest_price = $price;
+								}
+							?>
+							<div id="package_<?php echo $this->Html->safe($i+1);?>" class="package-block <?php echo ($this->Html->ifSet($package_id) == $package->id ? "active" : "");?>">
+								<div class="col-md-6 package-selected">
+									<h3><?php $this->Html->_($package->name);?></h3>
+								</div>
+								<div class="col-md-6 package-selected">
+									<h3 class="pull-right"><small><?php $this->_("Main.packages.price_start");?></small> <?php echo $this->CurrencyFormat->format($this->Html->ifSet($lowest_price->price), $this->Html->ifSet($lowest_price->currency));?></h3>
+								</div>
+								<div class="clearfix"></div>
+								<?php
+								if (!empty($package->description_html) || !empty($package->description)) {
+								?>
+									<hr>
+									<div class="package-description">
+										<?php echo ($this->Html->ifSet($package->description_html) != "" ? $package->description_html : $this->TextParser->encode($parser_syntax, $package->description));?>
+									</div>
+									<div class="clearfix"></div>
+								<?php
+								}
+								?>
+							</div>
+							<?php
+							}
+							?>
+						</div>
+						<div class="col-md-12">
+							<div class="pull-right">
+								<button type="submit" class="btn btn-lg btn-success pull-right">
+									<?php $this->_("Main.packages.continue_btn");?> <i class="fa fa-angle-double-right"></i>
+								</button>
+								<div class="clearfix"></div>
+								<small><?php $this->_("Main.packages.continue_note");?></small>
+							</div>
+						</div>
+					<?php
+					$this->Form->end();
+					?>
+				<?php
+				}
+				?>
+	
+	<script type="text/javascript">
+		var base_uri = '<?php $this->Html->_($this->base_uri);?>';
+		var order_label = '<?php $this->Html->_($order_form->label);?>';
+	</script>
+	<script type="text/javascript" src="<?php echo $this->Html->safe($this->view_dir . "javascript/order.js");?>"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// Initialize package selection
+			initPackages(<?php echo $this->Json->encode($this->Html->ifSet($slider_packages_js, array()));?>);
+			
+			<?php
+			if ($order_form->template_style == "list") {
+			?>
+				$("form select[name='pricing_id']").each(function() {
+					displaySelectedPrice($(this));
+				});
+				$("form").on("change", "select[name='pricing_id']", function() {
+					displaySelectedPrice($(this));
+				});
+				
+				function displaySelectedPrice(field) {
+					var display = field.closest(".package-list");
+					
+					$(".term", display).html(field.find(":selected").attr('data-period'));
+					$(".price", display).html(field.find(":selected").attr('data-display-price'));
+				}
+			<?php
+			}
+			?>
+		});
+		
+		// Process change currency request
+		$("#change_currency").change(function() {
+			$(this).closest("form").attr('action', window.location.href);
+			$(this).closest("form").submit();
+		});
+	</script>

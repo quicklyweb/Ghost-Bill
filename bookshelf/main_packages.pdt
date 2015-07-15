@@ -140,9 +140,9 @@
 						?>
 							<div class="col-md-3 package-boxes" style="opacity: 1;">
 								<div class="package panel-blesta <?php echo ($this->Html->ifSet($package_id) == $package->id ? "selected" : "");?>" data-group-id="<?php $this->Html->_($package_group->id);?>" data-pricing-id="<?php $this->Html->_($lowest_price->id);?>">
-									<div class="package-name panel-heading" style="background: none !important;height: 150px;">
+									<div class="package-name panel-heading" style="background: none !important; height: 150px; border-bottom: 1px solid #fff !important;">
 										<div id="hexagono" style=" top: 55px; margin-left: auto; margin-right: auto; ">
-											<font style="font-weight: 300; font-size: 20px;"><?php $this->Html->_($package->name);?></font>
+											<font style="font-weight: 300; font-size: 20px; color: #fff !important;"><?php $this->Html->_($package->name);?></font>
 										</div>
 									</div>
 									<h2 style="color: #79b63a;"><font style="color: #7c87ae; font-size: 14px;"><?= $this->Html->ifSet($lowest_price->currency); ?></font> <?= explode(".", $this->Html->ifSet($lowest_price->price))[0]; ?>.<?= substr(explode(".", $this->Html->ifSet($lowest_price->price))[1], 0, 2); ?> </h2>

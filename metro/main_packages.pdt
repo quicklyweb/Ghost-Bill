@@ -142,9 +142,9 @@
 							<div class="col-md-4 package-boxes">
 								<div class="package panel-blesta <?php echo ($this->Html->ifSet($package_id) == $package->id ? "selected" : "");?>" data-group-id="<?php $this->Html->_($package_group->id);?>" data-pricing-id="<?php $this->Html->_($lowest_price->id);?>" style="border: none !important; -webkit-box-shadow: 0px 0px 7px 0px rgba(184,184,184,0.5) !important; -moz-box-shadow: 0px 0px 7px 0px rgba(184,184,184,0.5) !important; box-shadow: 0px 0px 7px 0px rgba(184,184,184,0.5) !important;">
 									<div class="package-name panel-heading" style="background: rgb(<?= $colors[$c]; ?>) !important;">
-										<h4><br><font style="font-weight: 300; font-size: 20px;"><?php $this->Html->_($package->name);?></font><br><br>
-											<font style="font-weight: 200; font-style: italic; font-size: 14px;"><?php $this->_("Main.packages.price_start");?></font><br>
-											<font><?php echo $this->CurrencyFormat->format($this->Html->ifSet($lowest_price->price), $this->Html->ifSet($lowest_price->currency));?></font><br><br>
+										<h4><br><font style="font-weight: 300; font-size: 20px; color: #fff !important;"><?php $this->Html->_($package->name);?></font><br><br>
+											<font style="font-weight: 200; font-style: italic; font-size: 14px; color: #fff !important;"><?php $this->_("Main.packages.price_start");?></font><br>
+											<font style=" color: #fff !important;"><?php echo $this->CurrencyFormat->format($this->Html->ifSet($lowest_price->price), $this->Html->ifSet($lowest_price->currency));?></font><br><br>
 										</h4>
 									</div><br>
 									<?php
@@ -155,10 +155,10 @@
 									}
 									?><br>
 									<div class="order selected-btn">
-										<button type="button" class="btn btn-success btn-lg btn-block" style="background: rgb(<?= $colors[$c]; ?>); border-color: rgb(<?= $colors[$c]; ?>);"><?php $this->_("Main.packages.box_selected");?></button>
+										<button type="button" class="btn btn-success btn-lg btn-block" style="background: rgb(<?= $colors[$c]; ?>) !important; border-color: rgb(<?= $colors[$c]; ?>) !important;"><?php $this->_("Main.packages.box_selected");?></button>
 									</div>
 									<div class="order unselected-btn">
-										<button type="button" class="btn btn-default btn-lg btn-block"><?php $this->_("Main.packages.box_select");?></button>
+										<button type="button" class="btn btn-default btn-lg btn-block" style="background: rgb(<?= $colors[$c]; ?>) !important; border-color: rgb(<?= $colors[$c]; ?>) !important;"><?php $this->_("Main.packages.box_select");?></button>
 									</div>
 								</div>
 							</div>

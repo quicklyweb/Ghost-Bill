@@ -142,9 +142,9 @@
 							<div class="col-md-4 package-boxes">
 								<div class="package panel-blesta <?php echo ($this->Html->ifSet($package_id) == $package->id ? "selected" : "");?>" data-group-id="<?php $this->Html->_($package_group->id);?>" data-pricing-id="<?php $this->Html->_($lowest_price->id);?>" style="border: none !important; -webkit-box-shadow: 0px 0px 7px 0px rgba(184,184,184,0.5) !important; -moz-box-shadow: 0px 0px 7px 0px rgba(184,184,184,0.5) !important; box-shadow: 0px 0px 7px 0px rgba(184,184,184,0.5) !important;">
 									<div class="package-name panel-heading" <?php if($c %2 != 0) { echo'style="background: rgba(254,100,110,1) !important; background: -moz-linear-gradient(top, rgba(254,100,110,1) 0%, rgba(254,48,92,1) 100%) !important; background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(254,100,110,1)), color-stop(100%, rgba(254,48,92,1))) !important; background: -webkit-linear-gradient(top, rgba(254,100,110,1) 0%, rgba(254,48,92,1) 100%) !important; background: -o-linear-gradient(top, rgba(254,100,110,1) 0%, rgba(254,48,92,1) 100%) !important; background: -ms-linear-gradient(top, rgba(254,100,110,1) 0%, rgba(254,48,92,1) 100%) !important; background: linear-gradient(to bottom, rgba(254,100,110,1) 0%, rgba(254,48,92,1) 100%) !important; filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#fe646e\', endColorstr=\'#fe305c\', GradientType=0 ) !important;"'; } ?>>
-										<h4><br><font style="font-weight: 400; font-size: 25px;"><?php $this->Html->_($package->name);?></font><br>
-											<font style="font-weight: 200; font-style: italic; font-size: 14px; opacity: 0.5;"><?php $this->_("Main.packages.price_start");?></font><br>
-											<font style="opacity: 0.7;"><?php echo $this->CurrencyFormat->format($this->Html->ifSet($lowest_price->price), $this->Html->ifSet($lowest_price->currency));?></font><br><br>
+										<h4><br><font style="font-weight: 400; font-size: 25px; color: #fff !important;"><?php $this->Html->_($package->name);?></font><br>
+											<font style="font-weight: 200; font-style: italic; font-size: 14px; opacity: 0.5; color: #fff !important;"><?php $this->_("Main.packages.price_start");?></font><br>
+											<font style="opacity: 0.7; color: #fff !important;"><?php echo $this->CurrencyFormat->format($this->Html->ifSet($lowest_price->price), $this->Html->ifSet($lowest_price->currency));?></font><br><br>
 										</h4>
 									</div><br>
 									<?php

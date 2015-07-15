@@ -69,10 +69,10 @@
 							<div class="col-md-4 package-boxes">
 								<div class="package panel-blesta <?php echo ($this->Html->ifSet($package_id) == $package->id ? "selected" : "");?>" data-group-id="<?php $this->Html->_($package_group->id);?>" data-pricing-id="<?php $this->Html->_($lowest_price->id);?>">
 									<div class="package-name panel-heading">
-										<h4><font style="font-weight: 300; font-size: 20px;"><?php $this->Html->_($package->name);?></font><hr>
-											<div style="border: 1px solid #fff; height: 130px; width: 130px; line-height: 120px; border-radius: 200px; -moz-border-radius: 200px; -webkit-border-radius: 200px; margin: 25px auto 25px auto;">
-												<font style="font-weight: 200; font-style: italic; font-size: 14px;"><?php $this->_("Main.packages.price_start");?></font>
-												<font><?php echo $this->CurrencyFormat->format($this->Html->ifSet($lowest_price->price), $this->Html->ifSet($lowest_price->currency));?></font>
+										<h4><font style="font-weight: 300; font-size: 20px; color: #fff !important; "><?php $this->Html->_($package->name);?></font><hr>
+											<div style="color: #fff !important; border: 1px solid #fff; height: 130px; width: 130px; line-height: 120px; border-radius: 200px; -moz-border-radius: 200px; -webkit-border-radius: 200px; margin: 25px auto 25px auto;">
+												<font style="color: #fff !important; font-weight: 200; font-style: italic; font-size: 14px;"><?php $this->_("Main.packages.price_start");?></font>
+												<font style="color: #fff !important; "><?php echo $this->CurrencyFormat->format($this->Html->ifSet($lowest_price->price), $this->Html->ifSet($lowest_price->currency));?></font>
 											</div>
 										</h4>
 									</div><br>

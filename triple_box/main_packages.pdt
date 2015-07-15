@@ -68,9 +68,9 @@
 						?>
 							<div class="col-md-4 package-boxes">
 								<div class="package panel-blesta <?php echo ($this->Html->ifSet($package_id) == $package->id ? "selected" : "");?>" data-group-id="<?php $this->Html->_($package_group->id);?>" data-pricing-id="<?php $this->Html->_($lowest_price->id);?>">
-									<div class="package-name panel-heading" style="background: url('<?php echo $this->Html->safe($this->view_dir . "images/head.jpg"); ?>'); <?php if($c == 1){ echo'background-size: cover; '; } ?> height: 175px;">
+									<div class="package-name panel-heading" style="background: url('<?php echo $this->Html->safe($this->view_dir . "images/head.jpg"); ?>') !important; <?php if($c == 1){ echo'background-size: cover; '; } ?> height: 175px;">
 										<h4 style=" border-bottom-width: 0px; ">
-											<div style="font-size: 25px; height: 130px; width: 130px; line-height: 130px; border-radius: 200px; -moz-border-radius: 200px; -webkit-border-radius: 200px; margin: 90px auto 25px auto; background: #046DD2;">
+											<div style="font-size: 25px; height: 130px; width: 130px; line-height: 120px; border-radius: 200px; -moz-border-radius: 200px; -webkit-border-radius: 200px; margin: 90px auto 25px auto; background: #046DD2; color: #fff !important;">
 												<font><?php echo $this->CurrencyFormat->format($this->Html->ifSet($lowest_price->price), $this->Html->ifSet($lowest_price->currency));?></font>
 											</div>
 										</h4>

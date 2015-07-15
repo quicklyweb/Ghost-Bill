@@ -140,9 +140,9 @@
 						?>
 							<div class="col-md-4 package-boxes">
 								<div class="package panel-blesta <?php echo ($this->Html->ifSet($package_id) == $package->id ? "selected" : "");?>" data-group-id="<?php $this->Html->_($package_group->id);?>" data-pricing-id="<?php $this->Html->_($lowest_price->id);?>" style="-webkit-box-shadow: 0px 0px 7px 0px rgba(184,184,184,0.5) !important; -moz-box-shadow: 0px 0px 7px 0px rgba(184,184,184,0.5) !important; box-shadow: 0px 0px 7px 0px rgba(184,184,184,0.5) !important;">
-									<div class="package-name panel-heading" style="background: none !important;height: 150px;">
+									<div class="package-name panel-heading" style="background: none !important; height: 150px; border-bottom: 0px solid #fff !important;">
 										<div id="hexagono" style=" top: 55px; margin-left: auto; margin-right: auto; ">
-											<font style="font-weight: 300; font-size: 20px;"><?php $this->Html->_($package->name);?></font>
+											<font style="font-weight: 300; font-size: 20px; color: #fff !important;"><?php $this->Html->_($package->name);?></font>
 										</div>
 									</div>
 									<?php

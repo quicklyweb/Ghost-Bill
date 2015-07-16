@@ -9,7 +9,7 @@
 			// Load config section
 			fetchConfig(pack_elem.attr('data-group-id'), pack_elem.attr('data-pricing-id'), function() {
 				// Animate to config section
-				$('html,body').animate({scrollTop: $('#package-config').offset().top}, 'slow');
+				//$('html,body').animate({scrollTop: $('#package-config').offset().top}, 'slow');
 			});
 		});
 		if ($(".package-list.selected").length > 0) {
@@ -18,7 +18,7 @@
 			// Load config section
 			fetchConfig(pack_elem.attr('data-group-id'), pricing_id, function() {
 				// Animate to config section
-				$('html,body').animate({scrollTop: $('#package-config').offset().top}, 'slow');
+				//$('html,body').animate({scrollTop: $('#package-config').offset().top}, 'slow');
 			});
 		}
 		

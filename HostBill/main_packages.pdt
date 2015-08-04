@@ -82,7 +82,7 @@
 						<hr>
 						<div class="well well-order package-list <?php echo ($this->Html->ifSet($package_id) == $package->id ? "selected" : "");?>" data-group-id="<?php $this->Html->_($package_group->id);?>" data-pricing-id="<?php $this->Html->_($lowest_price->id);?>" data-selected-pricing-id="<?php $this->Html->_($selected_pricing_id);?>">
 							<div class="col-md-4 col-sm-6 col-xs-12 package-item" style="text-align: left;">
-								<font style="color: rgb(81, 200, 197) !important; font-size: 18px;"><?php $this->Html->_($package->name);?></font>
+								<font style="color: #3daee9 !important; font-size: 18px;"><?php $this->Html->_($package->name);?></font>
 							<p>
 								<?php
 								if (!empty($package->description_html) || !empty($package->description)) {
@@ -98,7 +98,7 @@
 							</div>
 							<div class="col-md-4 col-sm-12 col-xs-12 package-item" style="text-align: left;">
 									<div class="order selected-btn">
-										<button type="button" class="btn btn-success btn-lg pull-right" style="background: rgb(232, 149, 114) !important; border-color: rgb(232, 149, 114) !important; border-radius: 0px !important;"><?php $this->_("Main.packages.box_selected");?></button>
+										<button type="button" class="btn btn-success btn-lg pull-right" style="background: #8fce35 !important; border-color: #8fce35 !important; border-radius: 0px !important;"><?php $this->_("Main.packages.box_selected");?></button>
 									</div>
 									<div class="order unselected-btn">
 										<button type="button" class="btn btn-default btn-lg pull-right" style="border-radius: 0px !important;"><?php $this->_("Main.packages.box_select");?></button>
@@ -115,7 +115,7 @@
 			</div>
 				
 				<div class="clearfix"></div>
-				<button type="button" class="btn btn-success btn-lg pull-right" style="background: rgb(232, 149, 114) !important; border-color: rgb(232, 149, 114) !important; border-radius: 0px !important; margin-top: 20px;margin-bottom: 15px;" onclick="$('#order_bill').fadeOut(); $(this).fadeOut(); $('#create-account').fadeIn();"><?php $this->_("Main.index.button_order");?></button>
+				<button type="button" class="btn btn-success btn-lg pull-right" style="background: #3daee9 !important; border-color: #3daee9 !important; border-radius: 0px !important; margin-top: 20px;margin-bottom: 15px;" onclick="$('#order_bill').fadeOut(); $(this).fadeOut(); $('#create-account').fadeIn();"><?php $this->_("Main.index.button_order");?></button>
 				<div class="clearfix"></div>
 									
 				<div class="col-md-12 noindent" id="create-account" style="display: none;"></div>

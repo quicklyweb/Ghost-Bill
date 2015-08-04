@@ -155,10 +155,10 @@
 									}
 									?><br>
 									<div class="order selected-btn">
-										<button type="button" class="btn btn-success btn-lg btn-block" style="background: rgb(<?= $colors[$c]; ?>) !important; border-color: rgb(<?= $colors[$c]; ?>) !important;"><?php $this->_("Main.packages.box_selected");?></button>
+										<button type="button" class="btn btn-success btn-lg btn-block" style="background: rgb(<?= $colors[$c]; ?>) !important; border-color: rgb(<?= $colors[$c]; ?>) !important; color: #fff !important;"><?php $this->_("Main.packages.box_selected");?></button>
 									</div>
 									<div class="order unselected-btn">
-										<button type="button" class="btn btn-default btn-lg btn-block" style="background: rgb(<?= $colors[$c]; ?>) !important; border-color: rgb(<?= $colors[$c]; ?>) !important;"><?php $this->_("Main.packages.box_select");?></button>
+										<button type="button" class="btn btn-default btn-lg btn-block" style="background: rgb(<?= $colors[$c]; ?>) !important; border-color: rgb(<?= $colors[$c]; ?>) !important; color: #fff !important;"><?php $this->_("Main.packages.box_select");?></button>
 									</div>
 								</div>
 							</div>

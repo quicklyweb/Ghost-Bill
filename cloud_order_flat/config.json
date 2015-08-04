@@ -1,0 +1,18 @@
+{
+	"version": "1.0.0",
+	"name": "Wizard Clean Template Pack",
+	"description": "Wizard Clean order form template pack for the Order plugin.",
+	"authors": [
+		{
+			"name": "Infoscan - Informatica, Lda [WebLX]",
+			"url": "http://www.weblx.pt"
+		}
+	],
+	"styles": {
+		"cleancurve": {
+			"name": "Cloud Order Flat",
+			"thumbnail": "images/thumb_csliderclean.png",
+			"screenshot": "images/full_csliderclean.png"
+		}
+	}
+}

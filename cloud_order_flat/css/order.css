@@ -1,24 +1,7 @@
-.slider-selection{
-	background: #3daeea !important;
-}
-.slider_container{
-	background: #ccc !important;
-	padding: 20px 35px 20px 35px;
-	border-radius: 5px 5px 5px 5px;
-	-moz-border-radius: 5px 5px 5px 5px;
-	-webkit-border-radius: 5px 5px 5px 5px;
-}
-.instructions{
-	padding: 5px; background: rgba(0,0,0,0.1); display: inline-block; margin-top: 20px; border-radius: 16px; -moz-border-radius: 16px; -webkit-border-radius: 16px; 
-	color: #666 !important;}
-.slider-handle{
-	opacity: 1;
-	background: #aaa;
-	margin-left: -15px !important;
-}
 .navfix {
 	margin-top: -20px;
 }
+
 .package {
 	margin: 10px 0 15px;
 	background: #fff;
@@ -56,13 +39,13 @@
 }
 
 .package p {
-	border-bottom: 1px dashed #efefef;
+	border-bottom: 1px dashed #fff;
 	margin: 0;
 	padding: 5px 10px;
 }
 
 .package h4 {
-	border-bottom: 1px solid #efefef;
+	border-bottom: 1px solid #fff;
 	padding: 10px 0;
 	margin-top: 0;
 	margin-bottom: 0;
@@ -102,7 +85,7 @@
 	font-weight: bold;
 }
 
-.section-title p.format {
+.section-title p {
 	margin-top: -10px;
 	font-style: italic;
 }
@@ -147,11 +130,15 @@
 /* Slider Styles */
 .package-slider {
 	margin-top: 10px;
-	color: #E4E4E4 !important;
-	background: #333 !important;
-	border-radius: 7px;
-	-moz-border-radius: 7px;
-	-webkit-border-radius: 7px;
+	background-image: url('../images/cloudy.png'), linear-gradient(#3daee9, #3daee9) !important;
+	background-image: url('../images/cloudy.png'), -webkit-gradient(linear, 0 0, 0 bottom, from(#3daee9), to(#3daee9)) !important;
+	background-image: url('../images/cloudy.png'), -webkit-linear-gradient(#3daee9, #3daee9) !important;
+	background-image: url('../images/cloudy.png'), -moz-linear-gradient(#3daee9, #3daee9) !important;
+	background-image: url('../images/cloudy.png'), -ms-linear-gradient(#3daee9, #3daee9) !important;
+	background-image: url('../images/cloudy.png'), -o-linear-gradient(#3daee9, #3daee9) !important;
+	color: #fff !important;
+	border-color: #3daee9 !important;
+	margin-bottom: 50px !important;
 }
 .package-slider .slider.slider-horizontal {
 	width: 100%;
@@ -189,6 +176,9 @@
 }
 .package-description p {
 	margin: 2px 0;
+	border-bottom: 1px solid rgba(255,255,255, 0.4);
+	color: #fff;
+	padding: 7px;
 }
 
 /* Whois styles */
@@ -227,35 +217,4 @@ div.noindent {
 
 #empty_cart {
 	margin-bottom: 20px;
-}
-
-/* List Styles */
-
-.package-list {
-	margin-top: 10px;
-	background-color: #fff;
-}
-
-.package-list .package-item {
-	margin-top: 0;
-	padding: 5px 15px 15px 15px;
-}
-
-.package-list h3 {
-	margin-top: 5px;
-}
-
-.package-list .instructions {
-	margin-bottom: 2px;
-	font-style: italic;
-	color: #999;
-}
-.package-list .selected-btn, .package-list.selected .unselected-btn  {
-	display: none;
-}
-.package-list .unselected-btn, .package-list.selected .selected-btn {
-	display: block;
-}
-.slider, .slider-horizontal{
-	width: 100% !important;
 }

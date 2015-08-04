@@ -39,7 +39,7 @@
 										<button class="btn btn-default" type="submit" name="transfer" value="1">
 											<i class="fa fa-sign-in"></i> <?php $this->_("Domain.lookup.transfer_btn");?>
 										</button>
-										<a href="<?php echo $this->Html->safe($this->base_uri . "order/main/index/" . $this->Html->ifSet($order_form->label) . "/?skip=true");?>" class="btn btn-default"><i class="fa fa-hand-o-right"></i> <?php $this->_("Domain.lookup.other_btn");?></a>
+										<!-- <a href="<?php echo $this->Html->safe($this->base_uri . "order/main/index/" . $this->Html->ifSet($order_form->label) . "/?skip=true");?>" class="btn btn-default"><i class="fa fa-hand-o-right"></i> <?php $this->_("Domain.lookup.other_btn");?></a> -->
 									</div>
 								</div>
 							<?php

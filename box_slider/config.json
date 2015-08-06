@@ -1,0 +1,18 @@
+{
+	"version": "1.0.0",
+	"name": "Box Slider",
+	"description": "Box Slider order form template pack for the Order plugin.",
+	"authors": [
+		{
+			"name": "Phillips Data, Inc.",
+			"url": "http://www.blesta.com"
+		}
+	],
+	"styles": {
+		"slider": {
+			"name": "Box Slider",
+			"thumbnail": "images/thumb_slider.png",
+			"screenshot": "images/full_slider.png"
+		}
+	}
+}

@@ -4,9 +4,9 @@
 }
 .order{ background: none !important; padding-top: 30px !important; padding-bottom: 30px !important; }
 .btn{
-	background: none;
-	color: #fff;
-	border-color: #fff;
+	background: none !important;
+	color: #fff !important;
+	border-color: #fff !important;
 	font-family: Lato, sans-serif;
 	font-weight: 500;
 	text-transform: uppercase;
@@ -16,9 +16,9 @@
 	margin: 0 auto 0 auto;
 }
 .btn:hover{
-	background: #fff;
-	color: rgb(45,199,252);
-	border-color: #fff;
+	background: #fff !important;
+	color: rgb(45,199,252) !important;
+	border-color: #fff !important;
 }
 .panel-blesta{
 	background: rgba(45,199,252, 0.5) !important;
@@ -48,6 +48,7 @@
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	font-family: Lato, sans-serif;
+	border: none !important;
 }
 .package.selected {
 	opacity: 1;

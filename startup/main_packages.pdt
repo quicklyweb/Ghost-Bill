@@ -143,7 +143,7 @@
 								<div class="package panel-blesta <?php echo ($this->Html->ifSet($package_id) == $package->id ? "selected" : "");?>" data-group-id="<?php $this->Html->_($package_group->id);?>" data-pricing-id="<?php $this->Html->_($lowest_price->id);?>" style="border: none !important;">
 									<div class="package-name panel-heading">
 										<h4 style="padding: 20px 0 20px 0; border: none;">
-											<font style="font-size: 25px; font-weight: 300; text-transform: uppercase;"><?php $this->Html->_($package->name);?></font>
+											<font style="font-size: 25px; font-weight: 300; text-transform: uppercase; color: #fff !important;"><?php $this->Html->_($package->name);?></font>
 										</h4>
 										<div style="padding: 10px 0 20px 0; background: rgba(0,0,0,0.15);">
 											<font style="font-weight: 300; color: #fff !important; font-size: 90px;"><?php echo $this->CurrencyFormat->format($this->Html->ifSet($lowest_price->price), $this->Html->ifSet($lowest_price->currency));?></font><br>
@@ -171,7 +171,7 @@
 						?>
 						<div class="col-md-12" style="margin-top: 20px;">
 							<div class="pull-right">
-								<button type="submit" class="btn btn-lg btn-success pull-right">
+								<button type="submit" class="btn btn-lg btn-success pull-right" style="background: #2dc7fc !important; color: #fff !important;">
 									<?php $this->_("Main.packages.continue_btn");?> <i class="fa fa-angle-double-right"></i>
 								</button>
 								<div class="clearfix"></div>

@@ -31,7 +31,7 @@
 	-moz-filter: grayscale(100%);
 	filter: grayscale(100%);
 }
-.panel-blesta:hover{
+.panel-blesta:hover, div[class="package panel-blesta selected"]{
 	background: rgb(45,199,252) !important;
 	-webkit-filter: grayscale(0%);
 	-moz-filter: grayscale(0%);
